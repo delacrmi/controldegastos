@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    
+    //link(href= proxy.public+"images/logos/favicon.ico" rel="icon" type="image/x-icon")
+
+    <!-- Styles -->
+    link(href= '//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css', rel='stylesheet')
+    link(href= 'http://fonts.googleapis.com/css?family=Pacifico', rel='stylesheet', type='text/css')
+    link(href= 'http://fonts.googleapis.com/css?family=Lato:300,400', rel='stylesheet', type='text/css')
+    link(rel= "stylesheet" href= proxy+"stylesheets/font-awesome.min.css")  
+    link(href= proxy+'stylesheets/main.css', rel='stylesheet')
+    link(href= proxy+'stylesheets/animate.css', rel='stylesheet', type='text/css')
+    
+    block css
+  
+  body
+    block body
+    
+    script(src= proxy+'javascripts/jquery/jquery-latest.js')
+    script(src= proxy+'javascripts/bootstrap/bootstrap.js')
+    script(src= proxy+'javascripts/theme.js')
+    script(src= proxy+"javascripts/respond.min.js")
+    script(src= proxy+'javascripts/main.js')
+    block js

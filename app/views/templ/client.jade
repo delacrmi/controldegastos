@@ -1,0 +1,21 @@
+extends template
+
+block css
+
+block body
+  section#main-content.full-height.text-center
+    .data
+      nav.large-padding.fondo-gris
+        ul.no-list.mediano
+          li.pacifico.col-md-3.inline-block
+            a.green(href= proxy+'')
+              | Food Facilito 
+              small.lato.small Vive, convive y diviértete
+          li.col-md-3.inline-block
+            a(href= 'contact') Contacto
+          li.col-md-3.inline-block
+            a(href= proxy+'about') Acerca de
+
+    block container
+
+block js
