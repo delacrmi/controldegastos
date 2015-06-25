@@ -7,4 +7,7 @@ module.exports = function(app) {
   app.get('/contact',index.contact);
   app.route('/menu')
     .get(index.menu);
+  app.route('/login')
+  .get(index.login)
+  .post(index.sing);
 }
