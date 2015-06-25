@@ -2,7 +2,7 @@ module.exports = {
 	sessionSecret: 'controldegastosSessionSecret',
 	proxy: '/',
 	mongoose: {
-		database: 'mongodb://localhost/controldedastos'
+		database: 'mongodb://localhost/controldegastos'
 	},
 	mysql: {
 		host: '',
