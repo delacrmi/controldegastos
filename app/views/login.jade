@@ -1,26 +1,28 @@
-extends ./templ/template
+extends ./templ/client
 
 block css
   link(href= proxy+'stylesheets/views/login.css', rel='stylesheet')
 
-block body
-  section#main-content.full-height.text-center
-    form.form-horizontal(method="post", id="loginForm", role='form').absolute-center
-      div.form-group
-        label.col-sm-2.col-xs-2.col-md-2.control-label(for='email') Email/User:
-        div.col-sm-8.col-xs-8.col.md-8
-          input.form-control(id='email',type="email", placeholder="email/user")
+block container
+  section#main-content.text-center.fondo-gris
+    form.col-lg-4.col-md-6.col-sm-6.col-xs-10.acount-Info.tope.green.form-horizontal(method="post", id="loginForm", role='form').absolute-center
+      
+      .input-group.margin-bottom-sm
+        span.input-group-addon
+          i.fa.fa-envelope-o.fa-fw
+        input.form-control(type='text', placeholder='Email address/User name')
 
-      div.form-group
-        label.col-sm-2.col-xs-2.col-md-2.control-label(for='password') Password:
-        div.col-sm-8.col-xs-8.col-md-8
-          input.form-control(id="password", type="password", placeholder='password')
+      .input-group
+        span.input-group-addon
+          i.fa.fa-key.fa-fw
+        input.form-control(type='password', placeholder='Password')
+      br
 
-      div.form-group
-        div
-          label.col-xs-offset-1.col-xs-4.col.sm.offset-1.col-sm-4.col-md-offset-1.col.md-4.col-lg-offset-1.col-lg-4
-            input(type='checkbox')
-            | Remenber me
+      .form-group
+        label.col-xs-6.col-sm-5.col-lg-4
+          input(type='checkbox')
+          | &nbsp; Remenber me
 
-      div.form-group
-        button.col-xs-offset-2.col-xs-2.col-sm-offset-2.col-sm-2.col-md-offset-2.col-md-2.col-lg-offset-2.col-lg-2.btn.btn-default(type='submit') Sing in
+      .form-group
+        button.btn.btn-primary(type='submit') Sing in
+          i.fa.fa-sign-in.fa-fw

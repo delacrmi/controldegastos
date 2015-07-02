@@ -18,6 +18,14 @@ function login (req, res) {
   res.render('login',{proxy: config.proxy});
 }
 
+function newAccount(req, res) {
+  res.render('users/new',{proxy: config.proxy});
+};
+
+function createAccount (req, res) {
+  // body...
+}
+
 function sing (req, res) {
   // body...
 }
@@ -27,5 +35,6 @@ module.exports = {
   contact: contact,
   menu: menu,
   login: login,
-  sing: sing
+  sing: sing,
+  newAccount: newAccount
 }
