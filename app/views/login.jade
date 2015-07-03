@@ -5,7 +5,7 @@ block css
 
 block container
   section#main-content.text-center.fondo-gris
-    form.col-lg-4.col-md-6.col-sm-6.col-xs-10.acount-Info.tope.green.form-horizontal(method="post", id="loginForm", role='form').absolute-center
+    form.col-lg-4.col-md-6.col-sm-6.col-xs-10.acount-Info.tope.green.form-horizontal(method="post", id="loginForm", role='form',href=proxy+'sing-in').absolute-center
       
       .input-group.margin-bottom-sm
         span.input-group-addon
@@ -24,5 +24,8 @@ block container
           | &nbsp; Remenber me
 
       .form-group
-        button.btn.btn-primary(type='submit') Sing in
-          i.fa.fa-sign-in.fa-fw
+        .btn-toolbar
+          button.btn.btn-primary(type='submit') Sing in
+            i.fa.fa-sign-in.fa-fw
+          a.btn.btn-default(href=proxy+'newUser') New Account &nbsp;
+            i.fa.fa-user-plus.fa-fw

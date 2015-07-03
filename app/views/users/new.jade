@@ -1,18 +1,57 @@
 extends ../templ/client
 
 block container
-  .menu.mediano
-    h2.pacifico.big.blue Create Account
-    br
+  //
+    .menu.mediano
+      h2.pacifico.big.blue Create Account
+      br
 
-  .col-lg-6.col-md-8.col-sm-10.col-xs-12.acount-Info.inline-block.tope.green
-    .input-group.margin-bottom-sm
-      span.input-group-addon
-        i.fa.fa-envelope-o.fa-fw
-      input.form-control(type='text', placeholder='Email address')
-    br
+  div.row.green.animated.flipInX
+      div.col-lg-7.col-md-9.col-sm-10.col-xs-12.inline-block
+        .panel
+          .panel-header.animated.bounceIn.delay-1
+            h2.pacifico.big.blue Create Account
+          .panel-body
+            .row
+              label.hidden-xs.col-lg-2.col-sm-3(for='first-name') First Name:
+              .col-lg-7.col-sx-8
+                input.form-control(id='first-name', type='text', maxlength='150', placeholder='First Name')
+            br
 
-    .input-group
-      span.input-group-addon
-        i.fa.fa-key.fa-fw
-      input.form-control(type='password', placeholder='Password')
+            .row
+              label.hidden-xs.col-lg-2.col-sm-3(for='last-name') Last Name:
+              .col-lg-7.col-sx-8
+                input.form-control(id='last-name', type='text', maxlength='150', placeholder='Last Name')
+            br
+
+            .row
+              label.hidden-xs.col-lg-2.col-sm-3(for='nick-name') User Name:
+              .col-lg-7.col-sx-8
+                input.form-control(id='nick-name', type='text', maxlength='150', placeholder='User Name')
+            br
+
+            .row
+              label.hidden-xs.col-lg-2.col-sm-3(for='email') Email:
+              .col-lg-7.col-sx-8
+                input.form-control(id='email', type='email', maxlength='150', placeholder='Email')
+            br
+
+            .row
+              label.hidden-xs.col-lg-2.col-sm-3(for='password') Password:
+              .col-lg-7.col-sx-8
+                input.form-control(id='password', type='password', maxlength='150', placeholder='Password')
+            br
+
+            .row
+              label.hidden-xs.col-lg-2.col-sm-3(for='confirm-password') Repeat:
+              .col-lg-7.col-sx-8
+                input.form-control(id='confirm-password', type='password', maxlength='150', placeholder='Password')
+            br
+
+          div.panel-footer.clearfix
+            div.pull-right.btn-toolbar
+              a.btn.btn-primary(id='save' data-toggle='tooltip' data-placement='bottom' title='save' href=proxy+'login') 
+                i.fa.fa-save.fa-md
+              a.btn.btn-danger(id='cancel' data-toggle='tooltip' data-placement='bottom' title='cancel' href=proxy) 
+                span.fa.fa-trash-o.fa-md
+
