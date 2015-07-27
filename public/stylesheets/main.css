@@ -110,7 +110,16 @@ a,.blue{
 	  transform: translate(-40%, -50%);
 	  -webkit-transform: translate(-40%, -50%);
 	}
+}
 
-
-
+@media(max-width: 320px){
+	.big{
+		font-size: 1em;
+	}
+	.small{
+		font-size: 6px;
+	}
+	.mediano{
+		font-size: 0.7em;
+	}
 }

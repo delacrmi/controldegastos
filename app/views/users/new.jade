@@ -1,11 +1,6 @@
 extends ../templ/client
 
 block container
-  //
-    .menu.mediano
-      h2.pacifico.big.blue Create Account
-      br
-
   div.row.green.animated.flipInX
       div.col-lg-7.col-md-9.col-sm-10.col-xs-12.inline-block
         .panel
@@ -52,6 +47,7 @@ block container
             div.pull-right.btn-toolbar
               a.btn.btn-primary(id='save' data-toggle='tooltip' data-placement='bottom' title='save' href=proxy+'login') 
                 i.fa.fa-save.fa-md
-              a.btn.btn-danger(id='cancel' data-toggle='tooltip' data-placement='bottom' title='cancel' href=proxy) 
+              a.btn.btn-danger(id='cancel' data-toggle='tooltip' data-placement='bottom' title='cancel' onclick='createUser()') 
                 span.fa.fa-trash-o.fa-md
 
+block script

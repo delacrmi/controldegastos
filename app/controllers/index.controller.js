@@ -23,7 +23,7 @@ function newAccount(req, res) {
 };
 
 function createAccount (req, res) {
-  // body...
+  console.log(JSON.stringfy(req.user));
 }
 
 function sing (req, res) {
