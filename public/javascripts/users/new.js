@@ -1,12 +1,16 @@
 var $form;
 
-$(document).on('ready'function() {
-	$form = $('form');
+$(document).on('ready',function() {
+  $form = $('form');
 });
 
 function createUser () {
-	sendToServer({
-		url: sessionStorage.proxy+'newUser',
-		data: $form.serializeObject();
-	});
+  //sconsole.log($form.serializeObject());
+  sendToServer({
+    url: location.href,
+    method: 'post',
+    data: {account: $form.serializeObject()}
+  }).done(function (data) {
+    console.log(data);
+  });
 }

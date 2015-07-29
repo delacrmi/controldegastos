@@ -1,7 +1,8 @@
 'use strict';
 
 var config = require('../../config/configENVFile'),
-  Users = require('../models/users');
+  Users = require('../models/users'),
+  circularCache = [];
 function root (req,res) {
   res.render('index',{proxy: config.proxy});
 }
@@ -23,7 +24,9 @@ function newAccount(req, res) {
 };
 
 function createAccount (req, res) {
-  console.log(JSON.stringfy(req.user));
+  console.log(JSON.stringify(req.body.account));
+  //write the create account code.
+  res.send(req.body.account);
 }
 
 function sing (req, res) {
@@ -36,5 +39,20 @@ module.exports = {
   menu: menu,
   login: login,
   sing: sing,
-  newAccount: newAccount
+  newAccount: newAccount,
+  createAccount: createAccount
 }
+
+//circular Structure
+  function circularStructure(key, value) {
+    if (typeof value === 'object' && value !== null) {
+        if (circularCache.indexOf(value) !== -1) {
+            // Circular reference found, discard key
+            return;
+        }
+        // Store value in our collection
+        circularCache.push(value);
+    }
+    return value;
+  }
+//

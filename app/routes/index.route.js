@@ -15,6 +15,7 @@ module.exports = function(app) {
   .post(index.sing);
 
   app.route('/newUser')
-    .get(index.newAccount);
+    .get(index.newAccount)
+    .post(index.createAccount);
 
 }
