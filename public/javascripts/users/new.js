@@ -9,7 +9,7 @@ function createUser () {
   sendToServer({
     url: location.href,
     method: 'post',
-    data: {account: $form.serializeObject()}
+    data: {user: $form.serializeObject()}
   }).done(function (data) {
     console.log(data);
   });

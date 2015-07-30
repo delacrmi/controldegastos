@@ -1,8 +1,9 @@
 'use strict';
 
 var config = require('../../config/configENVFile'),
-  Users = require('../models/users'),
+  user = require('./users.controller'),
   circularCache = [];
+
 function root (req,res) {
   res.render('index',{proxy: config.proxy});
 }
@@ -23,10 +24,11 @@ function newAccount(req, res) {
   res.render('users/new',{proxy: config.proxy});
 };
 
-function createAccount (req, res) {
-  console.log(JSON.stringify(req.body.account));
-  //write the create account code.
-  res.send(req.body.account);
+function createAccount (req, res, next) {
+  console.log(JSON.stringify(req.body.user));
+  user.create(req,res,function() {
+    res.send(req.user);
+  });
 }
 
 function sing (req, res) {

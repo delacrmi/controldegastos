@@ -16,7 +16,7 @@ var UserSchema = new Schema({
       // Validar el formato email 
       match: [/.+\@.+\..+/, "Por favor escribe una dirección de email correcta"]
     }],
-  username: {
+  userName: {
     type: String,
     //Configurar un único index 'username'
     unique: true,
@@ -81,15 +81,15 @@ UserSchema.methods.authenticate = function(password) {
 };
 
 //Encontrar posibles username no usados
-UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
+UserSchema.statics.findUniqueUsername = function(userName, suffix, callback) {
   var _this = this;
 
   //Añadir un sufijo 'username'
-  var possibleUsername = username + (suffix || '');
+  var possibleUsername = userName + (suffix || '');
 
 //Usar el método 'findOne' del model 'User' para encontrar un username único disponible
   _this.findOne({
-    username: possibleUsername
+    userName: possibleUsername
   }, function(err, user) {
     //Si ocurre un error llama al callback con un valor null, en otro caso encuentra un username disponible único
     if (!err) {
@@ -97,7 +97,7 @@ UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
       if (!user) {
         callback(possibleUsername);
       } else {
-        return _this.findUniqueUsername(username, (suffix || 0) + 1, callback);
+        return _this.findUniqueUsername(userName, (suffix || 0) + 1, callback);
       }
     } else {
       callback(null);
@@ -112,4 +112,4 @@ UserSchema.set('toJSON', {
 });
 
 //Crear el model 'User' a partir del 'UserSchema'
-mongoose.model('Users', UserSchema);
+module.exports = mongoose.model('Users', UserSchema);
