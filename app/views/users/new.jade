@@ -1,13 +1,16 @@
 extends ../templ/client
 
 block container
+
+  form#content(role='form' method= 'post')
+
   form(role='form' method= 'post')
     div.row.green.animated.flipInX
         div.col-lg-7.col-md-9.col-sm-10.col-xs-12.inline-block
           .panel
             .panel-header.animated.bounceIn.delay-1
               h2.pacifico.big.blue Create Account
-            .panel-body
+            //.panel-body
               .row
                 label.hidden-xs.col-lg-2.col-sm-3(for='first-name') First Name:
                 .col-lg-7.col-sx-8
@@ -53,3 +56,4 @@ block container
 
 block script
   script(src= proxy+'javascripts/users/new.js')
+  script(src= proxy+'javascripts/components.js')

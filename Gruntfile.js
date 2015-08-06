@@ -1,12 +1,25 @@
 'use strict';
 
 module.exports = function(grunt) {
-  var srcFiles = 'javascripts/development/**/*.js',
+  var srcFiles = ['./public/javascripts/**/*.js','./app/component/**/*.js'],
     testFiles = 'test/**/*.js';
 
   grunt.initConfig({
 
-    pkg: grunt.file.readJSON('package.json');
+    pkg: grunt.file.readJSON('package.json'),
+
+    browserify: {
+      options: {
+        transform: [require('grunt-react').browserify]
+      },
+      build:{
+        options: {
+          standalone: 'app'
+        },
+        src: './app/components/*.js',
+        dest: './public/javascripts/components.js'
+      }
+    },
 
     jshint: {
       build: {
@@ -37,6 +50,11 @@ module.exports = function(grunt) {
       build: {
         files: [srcFiles,testFiles],
         tasks: ['jshint', 'uglify', 'jasmine']
+      },
+      dev: {
+        files: './app/components/*.js',
+        tasks: ['browserify'],
+        options: { spawn: false }
       }
     }
 
@@ -46,7 +64,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
+  grunt.loadNpmTasks('grunt-browserify');
 
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['browserify']);
   grunt.registerTask('build', ['jshint', 'uglify', 'jasmine']);
+  grunt.registerTask('dev', ['watch']);
 };

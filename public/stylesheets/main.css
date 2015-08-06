@@ -28,6 +28,9 @@ img{
 .top-space{
 	margin-top: 100px;
 }
+.bottom-space{
+	padding-bottom: 20px
+}
 .absolute-center{
   position: absolute;
   left: 45%;
